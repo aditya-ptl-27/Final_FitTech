@@ -4,7 +4,23 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
- 
+ <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </head>
 <body>
                                                                                 
@@ -22,24 +38,164 @@
   
   <!-- Page top Section end -->
 
-    <br><br><br>
-        <!--       <form action="{% url 'calculate_bmi' %}" method="post" novalidate="novalidate">
-                {% csrf_token %}
-      <input type="int" name="height" id="height" placeholder="Height (in cm)">
-      <input type="int" name="weight" id="weight" placeholder="Weight (in kg)">
-      <input type="submit" value="Calculate">
-    </form>
-    <div id="results"></div>
-    {{bmi}} -->
+    <br>
 
 <section class="page-bottom-section set-bg">
   <div class="container">
   <div class="yz-widget" data-calculator-type="daily_need" data-language="en" data-unit-system="metric" data-background-color="white" data-text-color="#212121" data-primary-color="#f65d5d" data-alternate-background-color="#FFFFFF" data-alternate-text-color="#FFFFFF" data-secondary-color="#FFC107"><span class="yz-copyright">Powered by <a href="https://www.yazio.com/en/calorie-intake-calculator">YAZIO</a></span></div>
 <script src="https://widget.yazio.com/calculator.js" async></script>
 </div>
-</div>
+<div style="margin: 150px;"><h2>UNDERSTANDING CALORIC NEEDS</h2>
+  <p></p>
+  <h5>A calorie is a unit of energy. This power that the body needs to move and maintain its temperature is called energy. The nutrients we take into our body turn into energy, but after meeting the energy need, the excess calories turn into fat molecules and cause the body to fat.</h5>
+<p></p>
+<h5>The essential nutrients our body needs to produce energy; Protein, Carbohydrate, Fat</h5>
+<p></p>
+<h4>
+  <li>Energy = Cal – Kcal</li>
+  <li>1 gm. Carbohydrate = 4 calories</li>
+<li>1 gm. Protein = 4 calories</li>
+<li>1 gm. Fat = 9 calories</li>
+<li>7700 Calorie = 1 Kg</li>
+</h4>
+<p></p>
+<h5>7700 calories is equivalent to 1 kilogram. If you consume 7700 calories, you will gain 1 kilogram. If you spend 7700 calories, you will lose 1 kilogram.</h5>
+<p></p>
+<h4>CALORIES IN COMMON FRUITS</h4>
+
+<table>
+  <tr>
+    <th>FOOD</th>
+    <th>SIZE</th>
+    <th>CALORIES</th>
+  </tr>
+  <tr>
+    <td>Apple</td>
+    <td>1 small</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>Banana</td>
+    <td>1 medium</td>
+    <td>101</td>
+  </tr>
+  <tr>
+    <td>Orange</td>
+    <td>1</td>
+    <td>71</td>
+  </tr>
+  <tr>
+    <td>Strawberry</td>
+    <td>1 cup</td>
+    <td>53</td>
+  </tr>
+</table>
+
+<p></p>
+<h4>CALORIES IN COMMON VEGETABLES</h4>
+
+<table>
+  <tr>
+    <th>FOOD</th>
+    <th>SIZE</th>
+    <th>CALORIES</th>
+  </tr>
+  <tr>
+    <td>Brocoli</td>
+    <td>1 cup</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>Carrots</td>
+    <td>1 cup</td>
+    <td>45</td>
+  </tr>
+  <tr>
+    <td>Eggplant</td>
+    <td>1 cup</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>Lettuce</td>
+    <td>1 cup</td>
+    <td>7</td>
+  </tr>
+</table>
+
+<p></p>
+<h4>CALORIES IN COMMON FOODS</h4>
+
+<table>
+  <tr>
+    <th>FOOD</th>
+    <th>SIZE</th>
+    <th>CALORIES</th>
+  </tr>
+  <tr>
+    <td>Bread</td>
+    <td>1 slice</td>
+    <td>75</td>
+  </tr>
+  <tr>
+    <td>Beef</td>
+    <td>1 slice</td>
+    <td>120</td>
+  </tr>
+  <tr>
+    <td>Egg</td>
+    <td>Large</td>
+    <td>79</td>
+  </tr>
+  <tr>
+    <td>Pizza</td>
+    <td>1 slice</td>
+    <td>180</td>
+  </tr>
+  <tr>
+    <td>Hamburger</td>
+    <td>1</td>
+    <td>280</td>
+  </tr>
+</table>
+
+<p></p>
+<h4>CALORIES IN COMMON BEVERAGES</h4>
+
+<table>
+  <tr>
+    <th>FOOD</th>
+    <th>SIZE</th>
+    <th>CALORIES</th>
+  </tr>
+  <tr>
+    <td>Coca-cola</td>
+    <td>1 cup</td>
+    <td>97</td>
+  </tr>
+  <tr>
+    <td>Diet Coke</td>
+    <td>1 cup</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>Milk, low-fat</td>
+    <td>1 cup</td>
+    <td>104</td>
+  </tr>
+  <tr>
+    <td>Milk</td>
+    <td>1 cup</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>Orange Juice</td>
+    <td>1 cup</td>
+    <td>115</td>
+  </tr>
+</table>
+  </div>
 </section>
-          <br><br><br><br><br><br>
+          <br>
 
               <!-- </div>
 

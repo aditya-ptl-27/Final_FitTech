@@ -90,7 +90,9 @@ div.container {
 	margin-top: 10px;
 	margin-left: 404px;
 }
-
+/*.side{
+	margin-right: 200px;
+}*/
 
 /* Float four columns side by side */
 .column {
@@ -99,6 +101,8 @@ div.container {
   padding:50px;
 }
 
+/* Remove extra left and right margins, due to padding */
+/*.row {margin: 0 -5px;}*/
 	</style>
 	<link rel="stylesheet" href="{% static 'css/popup_form.css' %}"/>
 </head>
@@ -108,29 +112,30 @@ div.container {
 			<center>				
 		<div class="container">
 
-					<h2 style="color:white;">Full Body Workouts</h2>
+					<h2 style="color:white;">Workout Plans</h2>
 	</div>
 	</center>
 	</section>
-	<!-- Page top Section end -->
 	{% if request.session.email %}
 			<section class="events-page-section spad">
 		<div class="container">
 			<div class="row">
-				{% for workouts in workout %}
-				<a href="{% url 'workout_detail' pk=workouts.pk %}">
+				{% for i in exercise %}
+				<a href="{% url 'workout_plans_detail' pk=i.pk %}">
 				<div class="col-lg-4 col-md-6">
 					<div class="blog-item">
-						<img height="250px" width="100px" src="{{workouts.w_gif.url}}" alt="">
+						<img height="250px" width="100px" src="{{i.e_image.url}}" alt="">
 						<div class="bi-text">
-							<h3>{{workouts.w_name}}</h3>
+							<h3>{{i.e_name}}</h3>
+							<p></p>
 							<div class = content>
 				        
-				        <h6 style="color:#f65d5d">{{workouts.w_type}}</h6>
+				        <h6 style="color:#f65d5d">{{i.equipment}}</h6>
+				        <p> </p>
 				        <ul>
 							
-							<li><strong style="color:black;">Difficulty:</strong><p>{{workouts.w_difficulty}}</p></li>
-							<li><strong style="color:black;">Muscles Targeted:</strong><p>{{workouts.w_muscles_targeted}}</p></li>
+							<li><strong style="color:black;">Difficulty:</strong><p>{{i.e_difficulty}}</p></li>
+							<li><strong style="color:black;">Exercises:</strong><p>{% for workout in i.e_list.all %} {{workout.w_name}};{% endfor %}</p></li>
 						</ul>
 				      </div>
 							
@@ -147,32 +152,35 @@ div.container {
 				</div>
 			</a>
 			{% empty %}
-    <h1>No workouts found.</h1>
-			{% endfor %}
+      <center>
+        <h1 align="center">No Exercises Found.</h1>
+      </center>
+				{% endfor %}
 			
 			</div>
 		</div>
 
 	</section>
 	{% else %}
-
-		<section class="events-page-section spad">
+	<section class="events-page-section spad">
 		<div class="container">
 			<div class="row">
-				{% for workouts in workout %}
+				{% for i in exercise %}
 				<a onclick="openForm()">
 				<div class="col-lg-4 col-md-6">
 					<div class="blog-item">
-						<img height="250px" width="100px" src="{{workouts.w_gif.url}}" alt="">
+						<img height="250px" width="100px" src="{{i.e_image.url}}" alt="">
 						<div class="bi-text">
-							<h3>{{workouts.w_name}}</h3>
+							<h3>{{i.e_name}}</h3>
+							<p></p>
 							<div class = content>
 				        
-				        <h6 style="color:#f65d5d">{{workouts.w_type}}</h6>
+				        <h6 style="color:#f65d5d">{{i.equipment}}</h6>
+				        <p> </p>
 				        <ul>
 							
-							<li><strong style="color:black;">Difficulty:</strong><p>{{workouts.w_difficulty}}</p></li>
-							<li><strong style="color:black;">Muscles Targeted:</strong><p>{{workouts.w_muscles_targeted}}</p></li>
+							<li><strong style="color:black;">Difficulty:</strong><p>{{i.e_difficulty}}</p></li>
+							<li><strong style="color:black;">Exercises:</strong><p>{% for workout in i.e_list.all %} {{workout.w_name}};{% endfor %}</p></li>
 						</ul>
 				      </div>
 							
@@ -205,7 +213,9 @@ div.container {
   </form>
 </div>
 			{% empty %}
-    <h1>No workouts found.</h1>
+      <center>
+        <h1 align="center">No Exercises Found.</h1>
+      </center>
 				{% endfor %}
 			
 			</div>
@@ -213,8 +223,7 @@ div.container {
 
 	</section>
 	{% endif %}
-
-		<script>
+			<script>
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }
@@ -224,5 +233,7 @@ function closeForm() {
 }
 </script>
 	</body>
+	}
+	}
 </html>
 {% endblock %}

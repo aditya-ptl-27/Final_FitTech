@@ -47,4 +47,9 @@ urlpatterns = [
     path('trainer_blog_detail/<slug>',views.trainer_blog_detail, name="trainer_blog_detail"),
     path('trainer_blog_delete/<id>',views.trainer_blog_delete, name="trainer_blog_delete"),
     path('trainer_blog_edit/<slug>/',views.trainer_blog_edit, name="trainer_blog_edit"),
+    path('trainer_add_exercise',views.trainer_add_exercise, name="trainer_add_exercise"),
+    path('trainer_view_exercise/',views.trainer_view_exercise,name='trainer_view_exercise'),
+    path('trainer_exercise_detail/<int:pk>/',views.trainer_exercise_detail,name='trainer_exercise_detail'),
+    path('workout_plans/',views.workout_plans,name='workout_plans'),
+    path('workout_plans_detail/<int:pk>/',views.workout_plans_detail,name='workout_plans_detail'),
 ]

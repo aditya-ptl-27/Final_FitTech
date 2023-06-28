@@ -5,8 +5,10 @@
 <html lang="zxx">
 <head>
 	<link rel="stylesheet" href="{% static 'css/popup_form.css' %}"/>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4097845664108343"
+     crossorigin="anonymous"></script>
 </head>
-<body>                                                                              
+<body>
 	<!-- Hero Section -->
 	<section class="hero-section">
 		<div class="hero-social-warp">
@@ -42,16 +44,16 @@
 
 										{% if request.session.email %}
 
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nos-trud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-										
+
+
 										{% else %}
 
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nos-trud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
 										<a href="{% url 'signup' %}">
 										<div class="site-btn sb-white">Register now</div>
 										</a>
 										{% endif %}
-										
+
 									</div>
 								</div>
 							</div>
@@ -66,11 +68,11 @@
 							<h2>Reduce your stress</h2>
 							{% if request.session.email %}
 
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
-										
+										<p>Relax and Reduce Stress With Our Workouts </p>
+
 										{% else %}
 
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
+										<p>Relax and Reduce Stress With Our Workouts </p>
 										<a href="{% url 'signup' %}">
 										<div class="site-btn sb-white">Register now</div>
 										</a>
@@ -116,7 +118,7 @@
 						</div>
 						<div class="ai-text">
 							<h4>Extension of Spring</h4>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem a cusantium doloremque.</p>
+                            <p>Exercise regularly to get perfect physical beauty, take care of your soul and enjoy life more fully!</p>
 						</div>
 					</div>
 					<div class="about-item">
@@ -125,7 +127,7 @@
 						</div>
 						<div class="ai-text">
 							<h4>Against Aging</h4>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                            <p>Exercise regularly to get perfect physical beauty, take care of your soul and enjoy life more fully!</p>
 						</div>
 					</div>
 					<a href="{% url 'home_workouts' %}" class="site-btn sb-gradient mt-5">explore more</a>
@@ -134,8 +136,7 @@
 		</div>
 	</section>
 	<!-- About Section end -->
-
-	<!-- Classes Section -->
+<!-- Classes Section -->
 	<section class="classes-section spad">
 		<div class="container">
 			<div class="section-title text-center">
@@ -198,6 +199,11 @@
 					<center>
 					<div class="ci-bottom">
 						<div class="ci-author">
+							<!-- <img src="{% static 'img/classes/author/1.jpg' %}" alt="">
+							<div class="author-text">
+								<h6>Victoria Webb</h6>
+								<p>Yoga Trainer</p>
+							</div> -->
 						</div>
 						<a onclick="openForm()" class="site-btn sb-gradient">Details</a>
 					</div>
@@ -218,7 +224,7 @@
 
     <button type="submit" class="btn">Login</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    <a href="{% url 'signup' %}"><p style="color:#f65d5d">New User?? Signup Here!</p></a>
+    <a href="{% url 'signup' %}"><p >New User?? Signup Here!</p></a>
   </form>
 </div>
 {% endif %}
@@ -307,7 +313,7 @@
 
     <button type="submit" class="btn">Login</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    <a href="{% url 'signup' %}"><p style="color:#f65d5d">New User?? Signup Here!</p></a>
+    <a href="{% url 'signup' %}"><p >New User?? Signup Here!</p></a>
   </form>
 </div>
 {% endif %}
@@ -334,7 +340,7 @@
 						<div class="ti-text">
 							<h4>{{i.fname}}</h4>
 							<h6>Gym Trainer</h6>
-							<p>Yoga & Therapy Certificate of Uttarakhand University Sanskrit</p>
+							<p>Gym & Yoga Therapy Certificate of Uttarakhand University</p>
 							<div class="ti-social">
 								<a href="#"><i class="fa fa-facebook"></i></a>
 								<a href="#"><i class="fa fa-instagram"></i></a>
@@ -358,32 +364,42 @@
 					<div class="review-slider owl-carousel">
 						<div class="review-item">
 							<div class="ri-img">
-								<img src="{% static 'img/classes/author/1.jpg' %}" alt="">
+								<img src="{% static 'img/trainer/nirmeet_profile_trainer.jpg' %}" alt="">
 							</div>
 							<div class="ri-text text-white">
-								<p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness.</p>
-								<h4>Denise Thomas</h4>
-								<h6>Designer</h6>
+								<p> ¨If we could give every individual the right amount of nourishment and exercise, not too little and not too much, we would have found the safest way to health.¨</p>
+								<h4>Nirmeet Gandhi</h4>
+								<h6>Trainer</h6>
 							</div>
 						</div>
 						<div class="review-item">
 							<div class="ri-img">
-								<img src="{% static 'img/classes/author/2.jpg' %}" alt="">
+								<img src="{% static 'img/trainer/profile_stock2.jpg' %}" alt="">
 							</div>
 							<div class="ri-text text-white">
-								<p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness.</p>
-								<h4>Denise Thomas</h4>
-								<h6>Designer</h6>
+								<p>“The last three or four reps is what makes the muscle grow. This area of pain divides a champion from someone who is not a champion.”</p>
+								<h4>Akshat Parikh</h4>
+								<h6>Trainer</h6>
 							</div>
 						</div>
 						<div class="review-item">
 							<div class="ri-img">
-								<img src="{% static 'img/classes/author/3.jpg' %}" alt="">
+								<img src="{% static 'img/trainer/adi_profile.jpg' %}" alt="">
 							</div>
 							<div class="ri-text text-white">
-								<p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness.</p>
-								<h4>Denise Thomas</h4>
-								<h6>Designer</h6>
+								<p>¨A year from now you may wish you had started today.¨</p>
+								<h4>Aditya Patel</h4>
+								<h6>User</h6>
+							</div>
+						</div>
+							<div class="review-item">
+							<div class="ri-img">
+								<img src="{% static 'img/trainer/profile_stock.jpg' %}" alt="">
+							</div>
+							<div class="ri-text text-white">
+								<p>¨Our growing softness, our increasing lack of physical fitness, is a menace to our security.¨</p>
+								<h4>Kevin Gurjar</h4>
+								<h6>Trainer</h6>
 							</div>
 						</div>
 					</div>
@@ -401,6 +417,18 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
+async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4097845664108343"
+     crossorigin="anonymous"></script>
+<!-- Try FitTech and give your review here -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4097845664108343"
+     data-ad-slot="2692403797"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+</script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 	</body>
 </html>

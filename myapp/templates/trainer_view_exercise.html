@@ -1,0 +1,165 @@
+{% extends 'trainer_header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<style>
+div.container_hover {
+  position : relative;
+  width : 1100px;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  flex-warp : warp;
+  padding : 30px;  
+}
+
+div.container_hover div.card {
+  position: relative;
+  max-width : 300px;
+  height : 215px;  
+  background-color : #fff;
+  margin : 30px 10px;
+  padding : 20px 15px;
+  
+  display : flex;
+  flex-direction : column;
+  box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+  transition : 0.3s ease-in-out;
+  border-radius : 15px;
+}
+div.container_hover div.card:hover {
+  height : 320px;    
+}
+
+
+div.container_hover div.card .image {
+  position : relative;
+  width : 260px;
+  height : 260px;
+  
+  top : -40%;
+  left: 8px;
+  box-shadow : 0 5px 20px rgba(0,0,0,0.2);
+  z-index : 1;
+}
+
+div.container_hover div.card .image img {
+  max-width : 100%;
+  border-radius : 15px;
+}
+
+div.container_hover div.card .content {
+  position : relative;
+  top : -140px;
+  padding : 10px 15px;
+  color : #111;
+  text-align : center;
+  
+  visibility : hidden;
+  opacity : 0;
+  transition : 0.3s ease-in-out;
+    
+}
+
+div.container_hover div.card:hover .content {
+   margin-top : 30px;
+   visibility : visible;
+   opacity : 1;
+   transition-delay: 0.2s;
+  
+}
+div.polaroid {
+  width: 200px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  border-radius: 25px
+}
+
+img.workout {border-radius: 25px
+height:200px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+.top{
+	margin-top: 10px;
+	margin-left: 404px;
+}
+/*.side{
+	margin-right: 200px;
+}*/
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding:50px;
+}
+
+/* Remove extra left and right margins, due to padding */
+/*.row {margin: 0 -5px;}*/
+	</style>
+</head>
+<body>
+	<!-- Page top Section -->
+	<section class="page-top-section set-bg" data-setbg="{% static 'img/page-top-bg.jpg' %}" >
+			<center>				
+		<div class="container">
+
+					<h2 style="color:white;">My Custom Workout Plans</h2>
+	</div>
+	</center>
+	</section>
+			<section class="events-page-section spad">
+		<div class="container">
+			<div class="row">
+				{% for i in exercise %}
+				<a href="{% url 'trainer_exercise_detail' pk=i.pk %}">
+				<div class="col-lg-4 col-md-6">
+					<div class="blog-item">
+						<img height="250px" width="100px" src="{{i.e_image.url}}" alt="">
+						<div class="bi-text">
+							<h3>{{i.e_name}}</h3>
+							<p></p>
+							<div class = content>
+				        
+				        <h6 style="color:#f65d5d">{{i.equipment}}</h6>
+				        <p> </p>
+				        <ul>
+							
+							<li><strong style="color:black;">Difficulty:</strong><p>{{i.e_difficulty}}</p></li>
+							<li><strong style="color:black;">Exercises:</strong><p>{% for workout in i.e_list.all %} {{workout.w_name}};{% endfor %}</p></li>
+						</ul>
+				      </div>
+							
+						</div>
+						<div class="bi-footer">
+							<div class="bi-cata">Health</div>
+							<div class="bi-social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-instagram"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			{% empty %}
+      <center>
+        <h1 align="center">No Exercises Found.</h1>
+      </center>
+				{% endfor %}
+			
+			</div>
+		</div>
+
+	</section>
+		
+	</body>
+</html>
+{% endblock %}

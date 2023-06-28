@@ -1,0 +1,131 @@
+{% extends 'trainer_header.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<!--   <style>
+    .mt-100{margin-top: 100px}body{background: #00B4DB;background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);background: linear-gradient(to right, #0083B0, #00B4DB);color: #514B64;min-height: 100vh}
+  </style> -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+</head>
+<body>
+                                                                                
+  <!-- Page top Section -->
+  <section class="page-top-section set-bg" data-setbg="{% static 'img/page-top-bg.jpg' %}">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 m-auto text-white">
+          <h2>ADD WORKOUT PLAN</h2>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Page top Section end -->
+
+  <!-- Contact Section -->
+  <section class="contact-page-section spad overflow-hidden">
+    <div class="container">
+      <div class="row">
+        <center>
+        <div class="col-lg-8">
+          <h2 style="color:#f65d5d">Add Your Customised Workout Here</h2>
+          {% if msg %}
+            <b style="color:blue;">{{msg}}</b>
+            {% endif %}
+            <br><br>
+          <form action="{% url 'trainer_add_exercise' %}" class="singup-form contact-form" method="post"  enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            
+              <div class="form-group">
+                <select name="e_type" class="form-control" required>
+                  <option value="">---Select Exercise Type---</option>
+                  <option id="barbell_workout" value="barbell_workout">Barbell Workout</option>
+                  <option id="dumbbell_workout" value="dumbbell_workout">Dumbell Workout</option>
+                  <option id="band_workout" value="band_workout">Band Workout</option>
+                  <option id="cable_workout" value="cable_workout">Cable Workout</option>
+                  <option id="bodyweight_workout" value="bodyweight_workout">Bodyweight Workout</option>
+                  <option id="kettlebell_workout" value="kettlebell_workout">Kettlebell Workout</option>
+                </select>
+              </div>
+              <div class="row">
+              <div class="col-md-6">
+                <input type="text" placeholder="Exercise Name" name="e_name" value="{{trainer.e_name}}" required>
+              </div>
+              <!-- <select id="choices-multiple-remove-button" multiple>
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select> -->
+
+              <div class="form-group">
+                <select name="e_list" class="form-control" multiple required>
+                  <option value="">---Select Workouts---</option>
+                  {% for i in workouts %}
+                  <option value="{{i.w_name}}">{{i.w_name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-6">
+                <select name="e_difficulty" class="form-control" required>
+                  <option value="">---Select Workout Difficulty---</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <select name="equipment" class="form-control" required>
+                  <option value="">---Select Equipment---</option>
+                  <option value="Dumbbells">Dumbbells</option>
+                  <option value="Kettlebells">Kettlebells</option>
+                  <option value="Bands">Bands</option>
+                  <option value="Bodyweight">Bodyweight</option>
+                  <option value="Cables">Cables</option>
+                </select>
+              </div>
+            <div class="col-md-6">
+                <!-- <input type="file" placeholder="Upload Image or Gif" name="w_gif" value="{{trainer.w_gif}}" required /> -->
+                <div class="uploadOuter">
+                  <label for="uploadFile" class="btn btn-primary">Upload Exercise Image</label>
+                  <strong>OR</strong>
+                <span class="dragBox" >
+                  Darg and Drop Image here
+                  <input type="file" onChange="dragNdrop(event)"  ondragover="drag()" ondrop="drop()" name="e_image" id="uploadFile" required />
+                </span>
+                </div>
+                <div id="preview"></div>
+              </div>
+            
+            </div>
+            <center>
+              <button type="submit" value="submit" class="site-btn sb-gradient">Add Exercise</button>
+            </center>
+          </form>
+        </div>
+        </center>
+      </div>
+    </div>
+  </section>
+  <!-- Trainers Section end -->
+
+{% bootstrap_javascript %}
+<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+<script>$(document).ready(function(){
+    
+     var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+        removeItemButton: true,
+        maxItemCount:5,
+        searchResultLimit:5,
+        renderChoiceLimit:5
+      }); 
+     
+     
+ });</script>
+  </body>
+</html>
+{% endblock %}

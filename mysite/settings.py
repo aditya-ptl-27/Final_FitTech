@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'froala_editor',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

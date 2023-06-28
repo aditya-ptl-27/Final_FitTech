@@ -67,6 +67,8 @@ img.profile {
 									<!-- <li><a href="{% url 'home_workouts' %}">Home Workouts</a></li> -->
 									<li><a href="{% url 'trainer_view_workouts' %}">My Workouts</a></li>
 									<li><a href="{% url 'trainer_add_workout' %}">Add New Workouts</a></li>
+									<li><a href="{% url 'trainer_view_exercise' %}">My Workout Plans</a></li>
+									<li><a href="{% url 'trainer_add_exercise' %}">Add New Workout Plan</a></li>
 
 								</ul>
 						{% else %}
@@ -256,7 +258,9 @@ img.profile {
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget">
 						<div class="about-widget">
+							<a href="{% url 'trainer_index' %}" class="site-logo">
 							<img src="{% static 'img/fit_logo1.png' %}" height="100px" width="100px" alt="">
+						</a>
 							<p>Lorem ipsum dolor sit amet, consec-tetur adipiscing elit sed.</p>
 							<ul>
 								<li><i class="material-icons">phone</i>(965) 436 3274</li>

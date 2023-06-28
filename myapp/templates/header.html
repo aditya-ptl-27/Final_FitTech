@@ -56,6 +56,7 @@ img.profile {
 							<li><a href="{% url 'beginner_workouts' %}">Beginner Workouts</a></li>
 							<li><a href="{% url 'intermediate_workouts' %}">Intermediate Workouts</a></li>
 							<li><a href="{% url 'advanced_workouts' %}">Advanced Workouts</a></li>
+							<li><a href="{% url 'workout_plans' %}">Workout Plans</a></li>
 						</ul>
 					</li>
 
@@ -247,7 +248,9 @@ img.profile {
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget">
 						<div class="about-widget">
+							<a href="{% url 'index' %}" class="site-logo">
 							<img src="{% static 'img/fit_logo1.png' %}" height="100px" width="100px" alt="">
+						</a>
 							<p>Gym At Home</p>
 							<ul>
 								<li><i class="material-icons">phone</i>(965) 436 3274</li>

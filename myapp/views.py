@@ -1,9 +1,11 @@
 from django.shortcuts import render,redirect
-from .models import User,Workout,BlogModel
+from .models import User,Workout,BlogModel,Exercise
 from django.conf import settings
 from django.core.mail import send_mail
 import random
 from .form import *
+from django.shortcuts import get_object_or_404
+
 
 # Create your views here.
 
@@ -744,3 +746,76 @@ def trainer_blog_delete(request, id):
 			return redirect('trainer_view_blogs')
 	else:
 		return redirect('index')
+
+def trainer_add_exercise(request):
+	user=User.objects.get(email=request.session['email'])
+	trainer=User.objects.get(email=request.session['email'])
+	workouts=Workout.objects.all()
+	if trainer.usertype=='trainer':
+		if request.method=='POST':
+			exercise=Exercise.objects.create(
+					trainer=trainer,
+					e_type=request.POST['e_type'],
+					e_name=request.POST['e_name'],
+					equipment=request.POST['equipment'],
+					e_difficulty=request.POST['e_difficulty'],
+					e_image=request.FILES['e_image']
+					)
+			e_list_values = request.POST.getlist('e_list')
+			e_list_workouts = workouts.filter(w_name__in=e_list_values)
+			exercise.e_list.set(e_list_workouts)
+			msg='Exercise Added Successfully'
+			return render(request,'trainer_add_exercise.html',{'msg':msg,'user':user,'workouts':workouts})
+
+		else:
+			return render(request,'trainer_add_exercise.html',{'user':user,'workouts':workouts})
+	else:
+		return redirect('index')
+
+def trainer_view_exercise(request):
+	user=User.objects.get(email=request.session['email'])
+	trainer=User.objects.get(email=request.session['email'])
+	if trainer.usertype=='trainer':
+		exercise=Exercise.objects.filter(trainer=trainer)
+		return render(request,'trainer_view_exercise.html',{'exercise':exercise,'user':user})
+	else:
+		return redirect('home_workouts')
+
+
+def trainer_exercise_detail(request,pk):
+	user=User.objects.get(email=request.session['email'])
+	if user.usertype=='trainer':
+		exercise=Exercise.objects.get(pk=pk)
+		return render(request,'trainer_exercise_detail.html',{'exercise':exercise,'user':user})
+	else:
+		return redirect('home_workouts')
+
+def workout_plans(request):
+	try:
+		user=User.objects.get(email=request.session['email'])
+		if user.usertype=='user':
+			exercise=Exercise.objects.all()
+			return render(request,'workout_plans.html',{'exercise':exercise,'user':user})
+		else:
+			return redirect('trainer_view_exercise')
+	except:
+		exercise=Exercise.objects.all()
+		return render(request,'workout_plans.html',{'exercise':exercise})
+
+def workout_plans_detail(request,pk):
+	try:
+		user=User.objects.get(email=request.session['email'])
+		if user.usertype=='user':
+			exercise=Exercise.objects.get(pk=pk)
+			trainer=exercise.trainer
+			latest_plans=Exercise.objects.order_by("-id")[:3]
+			latest_plans_02=Exercise.objects.order_by("id")[:3]
+			context={'exercise':exercise,
+					'trainer':trainer,
+					'user':user,'latest_plans':latest_plans,'latest_plans_02':latest_plans_02}
+			return render(request,'workout_plans_detail.html',context)
+
+		else:
+			return redirect('trainer_view_exercise')
+	except:
+		return redirect('login')
